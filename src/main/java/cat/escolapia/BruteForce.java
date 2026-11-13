@@ -6,4 +6,26 @@ package cat.escolapia;
 
 public class BruteForce {
 
+    public static Resultat pinBreaker(String pdfPath) {
+        long attempts = 0;
+        long startTime = System.nanoTime();
+        double timeSeconds = 0;
+        String missionName = "Pin Breaker";
+        String foundPassword = null;
+
+        for (int i = 0; i <= 9999; i++) {
+            String password = String.format("%04d", i);
+            attempts++;
+
+            if (PDFChecker.checkPassword(pdfPath, password)) {
+                foundPassword = password;
+                break;
+            }
+        }
+        long endTime = System.nanoTime();
+        timeSeconds = (endTime - startTime) / 1_000_000_000.0;
+
+        Resultat r1 = new Resultat(missionName, foundPassword, attempts, timeSeconds);
+        return r1;
+    }
 }
