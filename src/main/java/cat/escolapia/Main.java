@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * PDF HUNTERS - Operació Força Bruta
- * Pràctica Entregable 03 - Programació de Serveis i Processos (DAM2)
- */
+
 public class Main {
 
     private static final String PDF_MISSION1 = "src/main/resources/documents/01_caixa_forta.pdf";
@@ -34,15 +31,12 @@ public class Main {
                     results.add(result1);
                     break;
                 case 2:
-                    // TODO: Missió 2 - ALPHANUMERIC HUNTER (patró c?NNNN)
                     System.out.println("Missió 2 encara no implementada.");
                     break;
                 case 3:
-                    // TODO: Missió 3 - DICTIONARY ATTACK
                     System.out.println("Missió 3 encara no implementada.");
                     break;
                 case 4:
-                    // TODO: Missió 4 - FINAL BOSS
                     System.out.println("Missió 4 encara no implementada.");
                     break;
                 case 5:
@@ -59,7 +53,7 @@ public class Main {
         scanner.close();
     }
 
-    // ----------------------- MENÚ -----------------------
+    // MENU
 
     private static void showMenu() {
         System.out.println("========================================");
@@ -86,7 +80,7 @@ public class Main {
         }
     }
 
-    // ----------------------- MISSIÓ 1 - PIN BREAKER -----------------------
+    //  MISSIÓ 1 - PIN BREAKER 
     // Genera totes les combinacions de 4 dígits (0000-9999) i les prova
 
     public static Resultat pinBreaker(String pdfPath) {
@@ -112,11 +106,10 @@ public class Main {
         return r1;
     }
 
-    // ----------------------- SORTIDA DE RESULTATS -----------------------
+    //  SORTIDA DE RESULTATS 
 
     private static void showResult(Resultat result) {
-        System.out.println();
-        System.out.println("----------------------------------");
+        System.out.println("\n----------------------------------");
         if (result.isFound()) {
             System.out.println("PASSWORD FOUND!");
             System.out.println("----------------------------------");
@@ -128,10 +121,9 @@ public class Main {
         System.out.println("Intents: " + result.getAttempts());
         System.out.printf("Temps: %.3f segons%n", result.getTimeSeconds());
         System.out.printf("Velocitat: %.2f intents/s%n", result.getSpeed());
-        System.out.println();
     }
 
-    // ----------------------- ESTADÍSTIQUES -----------------------
+    //  ESTADÍSTIQUES 
 
     private static void showComparison() {
         if (results.isEmpty()) {
@@ -161,6 +153,5 @@ public class Main {
                     result.getSpeed());
         }
         System.out.println("===================================================================");
-        System.out.println();
     }
 }
