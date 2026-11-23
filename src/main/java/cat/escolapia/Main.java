@@ -90,8 +90,14 @@ public class Main {
         String missionName = "Pin Breaker";
         String foundPassword = null;
 
+        ArrayList<String> combinations = new ArrayList<>();
+        
         for (int i = 0; i <= 9999; i++) {
-            String password = String.format("%04d", i);
+            combinations.add(String.format("%04d", i));
+        }
+
+        for (int i = 0; i < combinations.size(); i++) {
+            String password = combinations.get(i);
             attempts++;
 
             if (PDFChecker.checkPassword(pdfPath, password)) {
@@ -101,10 +107,12 @@ public class Main {
         }
         long endTime = System.nanoTime();
         timeSeconds = (endTime - startTime) / 1_000_000_000.0;
-
+ 
         Resultat r1 = new Resultat(missionName, foundPassword, attempts, timeSeconds);
         return r1;
     }
+
+    // MISSIÓ 2 - 
 
     //  SORTIDA DE RESULTATS 
 
